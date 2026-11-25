@@ -31,10 +31,14 @@ The five stories (each checked against its first publication):
 """
 
 import hashlib
+import math
 import os
 import struct
 import sys
 import zlib
+
+_cos = math.cos
+_sin = math.sin
 
 W = 1024
 H = 1024
@@ -246,6 +250,7 @@ class Canvas:
             self.fill_rect(x + i, y + h - 1 - i, w - 2 * i, 1, colour)
             self.fill_rect(x + i, y, 1, h, colour)
             self.fill_rect(x + w - 1 - i, y, 1, h, colour)
+
 
 
 # ---------------------------------------------------------------- png --
@@ -544,12 +549,6 @@ def draw_blast(cv, x, y, w, h):
     # Big "4 TONNES" tag, left of the blast.
     cv.stamp(x + 14, y + 10, 172, 44, 3, (20, 20, 20))
     cv.text(x + 26, y + 20, "4 TONNES", 3, (20, 20, 20))
-
-
-import math
-
-_cos = math.cos
-_sin = math.sin
 
 
 # ------------------------------------------------------------ compose --
